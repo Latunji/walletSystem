@@ -1,0 +1,19 @@
+EmpDeductMiniBean = Deleted. Replaced with PaymentReportBean
+NamedEntity = Renamed to HRReportBean
+
+
+//Sample usage of Custom Predicate Builder
+PredicateBuilder predicateBuilder = new PredicateBuilder();
+if(PayrollBeanUtils.getNextORPreviousDay(wCal, false) != null && PayrollBeanUtils.getNextORPreviousDay(wCal, true) != null){
+    predicateBuilder.addPredicate(new CustomPredicate("suspensionDate", PayrollBeanUtils.getNextORPreviousDay(wCal, false), Operation.GREATER));
+    predicateBuilder.addPredicate(new CustomPredicate("suspensionDate", PayrollBeanUtils.getNextORPreviousDay(wCal, true), Operation.LESS));
+}
+
+predicateBuilder.addPredicate(new CustomPredicate("employee.id", ne.getId()));
+List<SuspensionLog> logs =
+        this.payrollServiceExt.getObjectsFromBuilder(predicateBuilder, SuspensionLog.class, Arrays.asList(new OrderBy("id", false)));
+SuspensionLog wSL = logs.get(0);
+
+## Controllers Worked On.
+1.TransferLogGeneratorForm.java --> TransferLogXlsController.java
+2.
