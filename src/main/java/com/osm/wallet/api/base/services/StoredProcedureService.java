@@ -1,9 +1,9 @@
-/*
+package com.osm.wallet.api.base.services;/*
  * Copyright (c) 2021.
  * This code is proprietary to GNL Systems Ltd. All rights reserved.
  */
 
-package com.osm.gnl.ippms.ogsg.base.services;
+
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
